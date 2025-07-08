@@ -1,0 +1,58 @@
+@use '../../../../_styles/foundation/palette' as *;
+@use '../../../../_styles/foundation/_mixins' as *;
+
+.rightContainer {
+  display: flex;
+  // flex-direction: column;
+  // gap: 20px;
+
+  position: relative;
+}
+
+.rightContainer {
+  position: relative;
+  width: 100%;
+  height: auto;
+  // background-color: #b54c2e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // padding: 2rem;
+  overflow: hidden;
+  border-radius: 10px;
+
+  @media (max-width: 768px) {
+    align-items: center;
+  }
+}
+
+.member {
+  font-size: 12rem;
+  font-weight: bold;
+  color: $primary;
+  // letter-spacing: 1rem;
+  transform: rotate(90deg);
+  transform-origin: center;
+  margin: 0;
+  z-index: 2;
+  animation: memberBlink 1.2s infinite alternate;
+
+  @media (max-width: 768px) {
+    transform: none;
+    font-size: 2rem;
+    margin: 1rem 0 0 0;
+    letter-spacing: 0.2rem;
+    animation-duration: 0.8s;
+  }
+}
+
+// @keyframes memberBlink {
+//   0% { opacity: 1; text-shadow: 0 0 20px #fff, 0 0 40px #fff2; }
+//   50% { opacity: 0.7; text-shadow: 0 0 40px #fff, 0 0 80px #fff3; }
+//   100% { opacity: 1; text-shadow: 0 0 20px #fff, 0 0 40px #fff2; }
+// }
+
+
+
+

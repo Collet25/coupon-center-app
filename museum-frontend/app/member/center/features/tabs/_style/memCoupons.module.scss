@@ -1,0 +1,84 @@
+table.couponTable {
+  border-radius: 6px;
+  overflow: hidden;
+
+  th {
+    background-color: #7b2d12;
+    color: #f4f1ea !important;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px;
+    border: 1px solid darken(#7b2d12, 10%);
+  }
+
+  td {
+    background-color: #f4f1ea;
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px;
+    border: 1px solid #ddd;
+  }
+
+  tbody tr:hover td {
+    background-color: #f2dfd7;
+  }
+
+  thead {
+    border-radius: 6px;
+  }
+
+  tr {
+    transition: background-color 0.2s ease;
+  }
+}
+
+@media (max-width: 992px) {
+  // 平板
+  table.couponTable {
+    font-size: 0.9rem;
+    th,
+    td {
+      padding: 10px;
+    }
+  }
+@media (max-width: 768px) {
+  // 手機
+  table.couponTable {
+    font-size: 0.8rem;
+    th,
+    td {
+      padding: 8px;
+    }
+
+    thead {
+      display: none; // 如果資料很少也可考慮不顯示表頭
+    }
+
+    tbody td {
+      display: block;
+      width: 100%;
+      text-align: left;
+      position: relative;
+      padding-left: 50%;
+      box-sizing: border-box;
+    }
+
+    tbody td::before {
+      content: attr(data-label); // 對應欄位名稱
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: bold;
+      color: #3C3A36;
+    }
+
+    tr {
+      display: block;
+      margin-bottom: 1rem;
+      border: 1px solid #7B2D12;
+    }
+  }
+}
+}

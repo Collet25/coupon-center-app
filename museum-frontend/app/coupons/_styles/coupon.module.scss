@@ -1,0 +1,168 @@
+@use '../../_styles/foundation/palette' as *;
+
+.sectionTitle {
+  font-weight: 700;
+  margin-top: 20px;
+  font-size: 24px;
+}
+.borderCustom {
+  min-height: 60vh;
+
+  @media (max-width: 576px) {
+    h5 {
+      font-size: 14px;
+    }
+  }
+}
+
+.tabMenu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  list-style: none;
+  margin-top: 30px;
+  // margin-bottom: 2rem;
+  padding: 10px;
+}
+
+.tabItem {
+  text-decoration: none;
+  color: $sub-text;
+  font-weight: bold;
+  font-size: 20px;
+  position: relative;
+  transition: color 0.3s ease;
+  font-family: 'Noto Serif TC', serif;
+
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
+}
+
+.tabItem:hover {
+  color: $secondary;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tabItem::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  color: $muted;
+  background-color: $secondary;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.tabItem {
+  &:focus {
+    color: $muted;
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.tabItem:hover::after,
+.active::after {
+  width: 100%;
+  text-decoration: none !important;
+}
+
+.active {
+  color: $secondary;
+  text-decoration: none !important;
+  // border: 0px solid !important;
+}
+
+.sortBtn {
+  background: $light !important;
+  cursor: pointer;
+}
+
+/////////// coupon card style /////////
+
+.couponCard {
+  width: 300px;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: $light !important;
+  box-shadow: 0 5px 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  position: relative; // ✅ 必加：給 overlay 定位參考
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  @media (max-width:576px) {
+    font-size: 15px;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(132, 93, 76, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 3; // 高於圖片與文字
+  }
+
+  &:hover .overlay {
+    opacity: 1;
+  }
+
+  .hintText {
+    color: $light;
+    font-size: 1rem;
+    background-color: rgba(67, 47, 16, 0.5);
+    padding: 1rem 1.1rem;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  .imageContainer {
+    width: 60px;
+    min-height: 155px;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+  }
+
+  .cardbody {
+    width: 244px;
+    color: $danger;
+    z-index: 2;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
+}
+
+// 加到主畫面容器
+.fadeIn {
+  opacity: 0;
+  animation: fadeIn 0.4s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}

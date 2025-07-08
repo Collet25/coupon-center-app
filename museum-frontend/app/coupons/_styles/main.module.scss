@@ -1,0 +1,116 @@
+.challengeBox {
+  @media (max-width: 576px) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.scrollPrompt {
+  text-align: center;
+  animation: bounce 1s infinite;
+  &:hover {
+    animation: none; // ✅ 滑鼠移上時可選擇停止搖動
+    transition: transform 0.5s ease; // ✅ 這行讓放大變得自然、平滑
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 576px) {
+    margin: 0px;
+    padding: 5px;
+
+    h6 {
+      font-size: 14px;
+    }
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.scrollAnchor {
+  position: relative;
+}
+
+.gameSection {
+  position: relative;
+  min-height: 100vh;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  // margin-bottom: 90px;
+  background-color: #fbe7d6;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+
+  // ✅ 淡淡瓷器背景
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      url('/images/porcelain-2.png'), url('/images/porcelain-1.png'),
+      url('/images/porcelain-3.png'), url('/images/porcelain-4.png');
+    background-repeat: no-repeat;
+    background-size: 280px, 280px, 280px, 280px;
+    background-position:
+      top left,
+      bottom right,
+      top right,
+      bottom left;
+    opacity: 0.47; // ✅ 只影響背景圖片
+    z-index: 0;
+
+    // 📱 平板寬度以下：3欄
+    @media (max-width: 992px) {
+      background-size: 180px, 180px, 180px, 180px;
+    }
+
+    // 📱 手機寬度以下：2欄
+    @media (max-width: 378px) {
+      background-size: 80px, 80px, 80px, 80px;
+    }
+  }
+
+  // ✅ 內容保持在上層
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.titleCover {
+  background-image:
+    // radial-gradient(circle, rgba(248, 241, 227, 0.9), rgba(255, 255, 255, 0.3)),
+    // url('../../../public/images/coupon_bg_transparent.png'); // 背景剪影圖案
+    url('../../../public/images/c_bg_1.png');
+  background-size: cover;
+  background-position: right;
+  background-repeat: repeat;
+  background-blend-mode: soft-light;
+  height: 130px;
+  padding-top: 20px;
+  color: #1f1f1f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  @media (max-width: 576px) {
+    h3 {
+      font-size: 20px;
+    }
+    h6 {
+      font-size: 14px;
+    }
+  }
+}

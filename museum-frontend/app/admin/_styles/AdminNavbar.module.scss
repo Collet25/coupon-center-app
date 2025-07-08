@@ -1,0 +1,61 @@
+/* 圖示包裝優化 */
+.iconWrapper {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f5e3c3;
+  margin-right: 0.8rem !important;
+  transition: all 0.3s ease;
+}
+
+.customNavlink {
+  font-size: 1rem;
+  color: #f5e3c3;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background: #9a3412d9;
+    border-radius: 6px;
+  }
+
+  &.active {
+    background: #9a3412;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+}
+
+.customNavlink:hover .iconWrapper {
+  transform: rotate(5deg);
+}
+
+.customNavlink.active .iconWrapper {
+  background-color: #f5e3c3;
+}
+
+.customNavlink.active .iconWrapper {
+  color: #9a3412;
+}
+
+.customNavlinkSub {
+  font-size: 1rem;
+  color: #f5e3c3;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background: #9a3412d9;
+    border-radius: 6px;
+
+  }
+
+  &.active {
+    border-radius: 6px;
+    font-weight: bold;
+    background: #9a3412d9 !important;
+    
+  }
+}

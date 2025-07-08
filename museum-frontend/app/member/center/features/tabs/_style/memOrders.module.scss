@@ -1,0 +1,20 @@
+.orderCard {
+  background-color: #f4f1ea;
+  border-left: 6px solid #7b2d12;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #f2dfd7;
+  }
+
+  ul {
+    li {
+      margin-bottom: 0.3rem;
+    }
+  }
+
+  .badge {
+    font-size: 0.85rem;
+  }
+}

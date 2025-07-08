@@ -1,0 +1,131 @@
+@use '../_styles/foundation/palette' as *;
+
+// .couponTextColor {
+//   color: #e8e6e1;
+// }
+
+.customCouponBtn {
+  position: fixed;
+  top: 180px;
+  left: 0;
+  z-index: 33;
+  padding: 15px;
+  margin: 0;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+    max-width: fit-content;
+  width: auto;           
+  max-height: 50px;
+  display: inline-flex;   
+  align-items: center;    
+
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 796px) {
+    padding: 10px;
+  }
+
+  .couponBtnSize {
+    @media (max-width: 796px) {
+      font-size: 18px;
+    }
+  }
+}
+
+/////////// coupon card style /////////
+
+.couponCard {
+  width: 250px;
+  overflow: hidden;
+  border-radius: 12px;
+  // background-color: #E3DCD;
+  background-color: $light !important;
+  box-shadow: 0 5px 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  position: relative; // ✅ 必加：給 overlay 定位參考
+
+  h3{
+    color: #ea580c;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(132, 93, 76, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 3; // 高於圖片與文字
+  }
+
+  &:hover .overlay {
+    opacity: 1;
+  }
+
+  .hintText {
+    color: $light;
+    font-size: 1rem;
+    background-color: rgba(67, 47, 16, 0.6);
+    padding: 5px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  .imageContainer {
+    width: 60px;
+    min-height: 155px;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+  }
+
+  .cardbody {
+    width: 244px;
+    color: $danger;
+    z-index: 2;
+  }
+
+  @media (max-width: 1796px) {
+    h3{
+      font-size: 20px;
+      color: #ea580c;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      margin-bottom: 0;
+    }
+    p{
+      font-size: 14px;
+    }
+  }
+}
+
+.glowText {
+  background: linear-gradient(90deg, #4E3629, #3C3A36, #4E3629);
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; //讓文字變透明吃背景
+  animation: flowText 2s linear infinite;
+}
+
+@keyframes flowText {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 100% center;
+  }
+}
+

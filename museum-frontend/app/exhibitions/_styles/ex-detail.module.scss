@@ -1,0 +1,90 @@
+@use '../../../app/_styles/foundation/palette' as *;
+/* 細節頁樣式 */
+
+.infoSection {
+  width: 100%;
+  max-width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.heroBanner {
+  margin-top: 60px;
+  text-align: center;
+
+  @media (max-width: 376px) {
+    margin-top: 80px;
+  }
+
+  img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.box {
+  height: 40px;
+
+  @media (max-width: 768px) {
+    height: 5px;
+  }
+}
+
+.titleEx {
+  word-break: break-word;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+  }
+}
+.subEx {
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.exhibitionDescription {
+  font-size: 20px;
+  line-height: 1.8;
+  color: $main-text;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.productActions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  // margin-bottom: 10px;
+  flex-wrap: wrap; // ✅ 加這行避免按鈕太多時爆版
+  margin-left: 10px;
+}
+
+.faBtn > * {
+    @media (max-width: 376px) {
+      font-size: 10px;
+    }
+  }
+
+.customHover {
+  color: #1f1f1f;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #7B2D12 !important; // 磚紅
+    
+  }
+}
+.customHover:hover svg {
+  color: #7B2D12;
+  transform: scale(1.2);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
