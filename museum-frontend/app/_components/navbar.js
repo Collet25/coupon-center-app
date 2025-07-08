@@ -27,9 +27,7 @@ import Image from 'next/image'
 // toast
 import { useToast } from './ToastManager'
 import { io } from 'socket.io-client'
-import ChatSidebar from './Chat/ChatSidebar'
 import { jwtDecode } from 'jwt-decode'
-import { useCart } from '@/app/_context/CartContext'
 
 export default function Navbar() {
   const pathname = usePathname()
@@ -65,7 +63,6 @@ export default function Navbar() {
   const [isCartOpen, setIsCartOpen] = useState(false)
   // const cartItems = [] // 這裡可接
   // const [cartItems, setCartItems] = useState([])
-  const { cartItems, clearCart } = useCart()
 
   /* -------------------- Effects ---------------------- */
   // 1. 監聽捲動：縮小／還原 Header
@@ -91,7 +88,7 @@ export default function Navbar() {
   }
 
   const handleLogout = () => {
-    clearCart()
+
     logout()
     showToast('secondary', '您已登出！謝謝光臨！')
     router.push('/')
@@ -247,7 +244,8 @@ export default function Navbar() {
               </a> */}
               {/* 購物車 */}
               {/* 登入後才顯示購物車 */}
-              {isLoggedIn && (
+              
+              {/* {isLoggedIn && (
                 <div
                   className="nav-icon"
                   onMouseEnter={() => setIsCartOpen(true)}
@@ -277,7 +275,7 @@ export default function Navbar() {
                     </div>
                   )}
                 </div>
-              )}
+              )} */}
 
               {/* 個人檔案 */}
               {!isLoading &&
@@ -431,24 +429,7 @@ export default function Navbar() {
                     </div>
                   </button>
                   <div className="mobile-nav-actions">
-                    {isLoggedIn && (
-                      <Link
-                        href="/cart"
-                        className="mobile-nav-icon"
-                        onClick={closeMenu}
-                      >
-                        <FaShoppingCart className="icon" />
-                        {cartItems.length > 0 && (
-                          <span className="cart-count">
-                            {cartItems.reduce(
-                              (total, item) => total + item.quantity,
-                              0
-                            )}
-                          </span>
-                        )}
-                        {/* <span className="mobile-nav-label style={{ color: '#7b2d12' }}>購物車</span> */}
-                      </Link>
-                    )}
+                    
                     <span className="mobile-nav-divider" />
                     {isLoggedIn && (
                       <button
@@ -500,21 +481,7 @@ export default function Navbar() {
         onSubmit={handleSubmitLogin}
       />
 
-      {/* 聊天室側邊欄 */}
-      <ChatSidebar
-        isOpen={isChatOpen}
-        onClose={() => setIsChatOpen(false)}
-        receiverId={
-          member?.role === 'member'
-            ? 93
-            : member?.role === 'staff'
-              ? 92
-              : member?.role === 'admin'
-                ? 92
-                : undefined
-        }
-        isStaff={member?.role === 'staff' || member?.role === 'admin'}
-      />
+     
     </>
   )
 }
