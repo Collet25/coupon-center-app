@@ -28,4 +28,59 @@
 - 每日挑戰成功後自動領取特定優惠券
 - 已領取／未領取優惠券分頁與提示
 
+## 專案啟動方式
+
+### 1. Clone 專案
+
+```bash
+git clone https://github.com/Collet25/exhibition-coupon-app.git
+cd exhibition-coupon-app
+
+### 2. 安裝前後端依賴
+# 前端
+cd client
+npm install
+
+# 後端
+cd ../backend
+npm install
+
+### 3. 設定環境變數
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=你的密碼
+DB_NAME=museum
+PORT=3005
+
+### 4. 匯入資料庫（MySQL）
+
+先建立資料庫 `museum`，接著匯入以下 SQL：
+
+```bash
+# 匯入資料表結構
+mysql -u root -p museum < backend/database/database.sql
+
+### 5. 啟動伺服器與前端
+
+```bash
+# 啟動後端
+cd backend
+npm run dev
+
+# 啟動前端
+cd ../client
+npm run dev
+
+預設前端會在 http://localhost:3000 開啟，後端則在 http://localhost:3005
+
+## 測試帳號
+
+| 角色   | 帳號              | 密碼     |
+|--------|-------------------|----------|
+| 測試會員 | test1@test.com    | 12345Ab@  |
+
+> 登入後可測試：
+> - 領取優惠券（單張 / 一鍵）
+> - 每日挑戰領券
+> - 收藏功能與分頁篩選
 
